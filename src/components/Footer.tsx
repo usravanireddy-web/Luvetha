@@ -14,7 +14,7 @@ const Footer = () => {
     { name: 'Data Analytics', path: '/services' },
     { name: 'Mobile Apps', path: '/services' },
     { name: 'Retail Services', path: '/services' },
-    { name: 'Database Maintenance', path: '/services' }
+    { name: 'Data Base Maintenance', path: '/services' }
   ];
 
   const quickLinks = [

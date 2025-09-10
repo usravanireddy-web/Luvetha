@@ -51,11 +51,11 @@ const Services = () => {
         description:
           "Performance-driven marketing: SEO, paid ads, social campaigns and content that converts.",
         features: [
-          "SEO & Content Strategy",
-          "Google / Social Ads",
-          "Social Media Management",
-          "Conversion Rate Optimization",
-          "Analytics & Reporting",
+          "SEO & GEO",
+          "Google Ads",
+          "Social Media Marketing ",
+          "E-Mail Marketing",
+          "Google My Business",
         ],
       },
       {
