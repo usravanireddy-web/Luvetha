@@ -2,42 +2,75 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { ArrowRight, Cloud, Shield, Smartphone, Code, Database, Zap } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Monitor, 
+  Megaphone, 
+  Database, 
+  Code, 
+  Zap, 
+  BarChart, 
+  Smartphone, 
+  ShoppingBag, 
+  HardDrive 
+} from 'lucide-react'; 
+// ✅ Added new icons: BarChart (Data Services), ShoppingBag (Retail Services), HardDrive (Database Maintenance)
 import heroImage from '@/assets/hero-tech.jpg';
 
 const Home = () => {
-  const services = [
-    {
-      icon: <Cloud className="h-12 w-12 text-primary" />,
-      title: 'Cloud Solutions',
-      description: 'Scalable cloud infrastructure and migration services to modernize your business operations.'
-    },
-    {
-      icon: <Code className="h-12 w-12 text-primary" />,
-      title: 'Custom Development',
-      description: 'Tailored software solutions built with cutting-edge technologies for your unique needs.'
-    },
-    {
-      icon: <Shield className="h-12 w-12 text-primary" />,
-      title: 'Cybersecurity',
-      description: 'Comprehensive security solutions to protect your digital assets and sensitive data.'
-    },
-    {
-      icon: <Smartphone className="h-12 w-12 text-primary" />,
-      title: 'Mobile Apps',
-      description: 'Native and cross-platform mobile applications for iOS and Android platforms.'
-    },
-    {
-      icon: <Database className="h-12 w-12 text-primary" />,
-      title: 'Data Analytics',
-      description: 'Transform your data into actionable insights with advanced analytics and BI solutions.'
-    },
-    {
-      icon: <Zap className="h-12 w-12 text-primary" />,
-      title: 'IT Consulting',
-      description: 'Strategic technology consulting to optimize your IT infrastructure and processes.'
-    }
+  // ✅ Each row is explicitly defined for clarity
+  const servicesRows = [
+    [
+      {
+        icon: <Monitor className="h-12 w-12 text-primary" />,
+        title: 'Web Designing',
+        description: 'Creative, responsive, and modern website designs tailored to your business identity.'
+      },
+      {
+        icon: <Megaphone className="h-12 w-12 text-primary" />,
+        title: 'Digital Marketing',
+        description: 'Boost your brand visibility with SEO, social media, and performance-driven marketing campaigns.'
+      },
+      {
+        icon: <BarChart className="h-12 w-12 text-primary" />,
+        title: 'Data Services',
+        description: 'Organize, process, and optimize data with scalable data service solutions.'
+      }
+    ],
+    [
+      {
+        icon: <Code className="h-12 w-12 text-primary" />,
+        title: 'Custom Development',
+        description: 'Tailored software solutions built with cutting-edge technologies for your unique needs.'
+      },
+      {
+        icon: <Zap className="h-12 w-12 text-primary" />,
+        title: 'IT Consulting',
+        description: 'Strategic technology consulting to optimize your IT infrastructure and processes.'
+      },
+      {
+        icon: <Database className="h-12 w-12 text-primary" />,
+        title: 'Data Analytics',
+        description: 'Transform your data into actionable insights with advanced analytics and BI solutions.'
+      }
+    ],
+    [
+      {
+        icon: <Smartphone className="h-12 w-12 text-primary" />,
+        title: 'Mobile Apps',
+        description: 'Native and cross-platform mobile applications for iOS and Android platforms.'
+      },
+      {
+        icon: <ShoppingBag className="h-12 w-12 text-primary" />,
+        title: 'Retail Services',
+        description: 'Comprehensive retail IT solutions to enhance customer experience and streamline operations.'
+      },
+      {
+        icon: <HardDrive className="h-12 w-12 text-primary" />,
+        title: 'Data Base Maintenance',
+        description: 'Reliable database maintenance and support to ensure your systems run smoothly.'
+      }
+    ]
   ];
 
   return (
@@ -52,9 +85,6 @@ const Home = () => {
         </div>
         
         <div className="relative z-10 text-center text-primary-foreground px-4 animate-fade-in">
-          {/* <Badge variant="secondary" className="mb-6">
-            Leading IT Solutions Provider
-          </Badge> */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Transforming
             <br />
@@ -86,25 +116,30 @@ const Home = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card 
-                key={index} 
-                className="group hover:shadow-professional transition-all duration-300 hover:scale-105 animate-scale-in bg-gradient-card border-0"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 p-3 bg-accent rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
-                    {service.icon}
-                  </div>
-                  <CardTitle className="text-xl">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-center text-base">
-                    {service.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
+          {/* ✅ Explicit Rows */}
+          <div className="space-y-12">
+            {servicesRows.map((row, rowIndex) => (
+              <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {row.map((service, index) => (
+                  <Card 
+                    key={index} 
+                    className="group hover:shadow-professional transition-all duration-300 hover:scale-105 animate-scale-in bg-gradient-card border-0"
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <CardHeader className="text-center">
+                      <div className="mx-auto mb-4 p-3 bg-accent rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
+                        {service.icon}
+                      </div>
+                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-center text-base">
+                        {service.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             ))}
           </div>
         </div>
