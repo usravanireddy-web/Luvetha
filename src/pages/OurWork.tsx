@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import cosemeticImg from "../assets/Cosmetic.png";
+import vagtha from "../assets/vagtha.png";
+import sumana from "../assets/sumana.png";
+import dentist from "../assets/dentist.jpg";
 import flowershopImg from "../assets/flowershop.png";
 import saloonImg from "../assets/saloon.png";
-import aqua from "../assets/aqua.jpg";
+import aqua from "../assets/aqua.png";
 import newschannelImg from "../assets/newschannelImg.jpg";
+
 type Project = {
+  Name: string;
   title: string;
   category: string;
   image: string;
@@ -12,11 +16,55 @@ type Project = {
 };
 
 const projects: Project[] = [
-  { title: "Dental Clinic Website", category: "HTML Web Design", image:cosemeticImg, url: "https://your-dental-website.com" },
-  { title: "Flower Bouquet Shop", category: "Ecommerce Development", image:flowershopImg, url: "https://your-flower-website.com" },
-  { title: "Salon Website", category: "WordPress Development", image:saloonImg, url: "https://your-salon-website.com" },
-  { title: "Aqua Water Website", category: "HTML Web Design", image: aqua, url: "https://your-news-website.com" },
-  { title: "News Channel Website", category: "HTML Web Design ", image: newschannelImg, url: "https://your-landing-page.com" },
+  {
+    Name: "Vagtha Women Fashion ",
+    title: "Vagtha Women Fashion ",
+    category: "Ecommerce Development",
+    image: vagtha,
+    url: "https://www.vagtha.com/",
+  },
+  {
+    Name: "Sumanaa Fashion",
+    title: "Sumanaa Fashion",
+    category: "Ecommerce Development",
+    image: sumana,
+    url: "http://sumanaaclothing.com/",
+  },
+  {
+    Name: "Dental Clinic Website",
+    title: "Dental Clinic Website",
+    category: "HTML Web Design",
+    image: dentist,
+    url: "http://127.0.0.1:5500/DentalService.html",
+  },
+  {
+    Name: "Flower Bouquet Website",
+    title: "Flower Bouquet Shop",
+    category: "Ecommerce Development",
+    image: flowershopImg,
+    url: "http://127.0.0.1:5501/flower.html",
+  },
+  {
+    Name: "Saloon Website",
+    title: "Saloon Website",
+    category: "WordPress Development",
+    image: saloonImg,
+    url: "http://127.0.0.1:5501/BeautySaloon.html",
+  },
+  {
+    Name: "Aqua Water Website",
+    title: "Aqua Water Website",
+    category: "HTML Web Design",
+    image: aqua,
+    url: "http://127.0.0.1:5500/Aquaterias.html",
+  },
+  {
+    Name: "News Paper Website",
+    title: "News Channel Website",
+    category: "HTML Web Design ",
+    image: newschannelImg,
+    url: "http://127.0.0.1:5503/news.html",
+  },
 ];
 
 const categories = [
@@ -59,15 +107,24 @@ const OurWork: React.FC = () => {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProjects.map((project, index) => (
-          <div key={index} className="relative group rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+          <div
+            key={index}
+            className="relative group rounded-lg overflow-hidden shadow-lg"
+          >
+            {/* Responsive Image Container */}
+            <div className="w-full aspect-[16/9] bg-gray-100 flex items-center justify-center">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
 
+            {/* Hover Overlay */}
             <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h3 className="text-white text-lg font-bold mb-2">{project.title}</h3>
+              <h3 className="text-white text-lg font-bold mb-2">
+                {project.title}
+              </h3>
               <a
                 href={project.url}
                 target="_blank"
@@ -76,6 +133,13 @@ const OurWork: React.FC = () => {
               >
                 Visit Website
               </a>
+            </div>
+
+            {/* Always Visible Name */}
+            <div className="p-4 bg-white">
+              <p className="text-center font-semibold text-gray-800">
+                {project.Name}
+              </p>
             </div>
           </div>
         ))}
