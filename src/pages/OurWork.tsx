@@ -30,13 +30,13 @@ const projects: Project[] = [
     image: sumana,
     url: "http://sumanaaclothing.com/",
   },
-  {
-    Name: "Dental Clinic Website",
+   {
+     Name: "Dental Clinic Website",
     title: "Dental Clinic Website",
-    category: "HTML Web Design",
-    image: dentist,
+     category: "HTML Web Design",
+     image: dentist,
     url: "https://usravanireddy-web.github.io/Dental/",
-  },
+   },
   {
     Name: "Flower Bouquet Website",
     title: "Flower Bouquet Shop",
@@ -51,20 +51,20 @@ const projects: Project[] = [
     image: saloonImg,
     url: "https://usravanireddy-web.github.io/BeautySaloon/",
   },
-  {
-    Name: "Aqua Water Website",
-    title: "Aqua Water Website",
-    category: "HTML Web Design",
-    image: aqua,
-    url: "https://usravanireddy-web.github.io/AquaWater/",
-  },
-  {
-    Name: "News Paper Website",
-    title: "News Channel Website",
-    category: "HTML Web Design ",
-    image: newschannelImg,
-    url: "https://usravanireddy-web.github.io/News/",
-  },
+  // {
+  //   Name: "Aqua Water Website",
+  //   title: "Aqua Water Website",
+  //   category: "HTML Web Design",
+  //   image: aqua,
+  //   url: "https://usravanireddy-web.github.io/AquaWater/",
+  // },
+  // {
+  //   Name: "News Paper Website",
+  //   title: "News Channel Website",
+  //   category: "HTML Web Design ",
+  //   image: newschannelImg,
+  //   url: "https://usravanireddy-web.github.io/News/",
+  // },
 ];
 
 const categories = [
