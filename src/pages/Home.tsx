@@ -2,74 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { 
-  ArrowRight, 
-  Monitor, 
-  Megaphone, 
-  Database, 
-  Code, 
-  Zap, 
-  BarChart, 
-  Smartphone, 
-  ShoppingBag, 
-  HardDrive 
-} from 'lucide-react'; 
-// ✅ Added new icons: BarChart (Data Services), ShoppingBag (Retail Services), HardDrive (Database Maintenance)
 import heroImage from '@/assets/hero-tech.jpg';
 
+// Service images
+import websiteDesign from '@/assets/websitedesign.png';
+import digitalMarketing from '@/assets/digitalmarketing.png';
+import dataServices from '@/assets/dataservices.png';
+import customDevelopment from '@/assets/customdevelopment.png';
+import itConsulting from '@/assets/itconsulting.png';
+import dataAnalytics from '@/assets/dataanalytics.png';
+import mobileApps from '@/assets/mobileapps.png';
+import retailServices from '@/assets/retailservices.png';
+import dataBase from '@/assets/batabase.png';
+
 const Home = () => {
-  // ✅ Each row is explicitly defined for clarity
   const servicesRows = [
     [
-      {
-        icon: <Monitor className="h-12 w-12 text-primary" />,
-        title: 'Web Designing',
-        description: 'Creative, responsive, and modern website designs tailored to your business identity.'
-      },
-      {
-        icon: <Megaphone className="h-12 w-12 text-primary" />,
-        title: 'Digital Marketing',
-        description: 'Boost your brand visibility with SEO, social media, and performance-driven marketing campaigns.'
-      },
-      {
-        icon: <BarChart className="h-12 w-12 text-primary" />,
-        title: 'Data Services',
-        description: 'Organize, process, and optimize data with scalable data service solutions.'
-      }
+      { image: websiteDesign, title: 'Web Designing', description: 'Modern, responsive websites that perfectly reflect your brand identity and engage your audience.' },
+      { image: digitalMarketing, title: 'Digital Marketing', description: 'Effective online marketing strategies to increase visibility, traffic, and conversions.' },
+      { image: dataServices, title: 'Data Services', description: 'Comprehensive data solutions to store, manage, and process your business information efficiently.' }
     ],
     [
-      {
-        icon: <Code className="h-12 w-12 text-primary" />,
-        title: 'Custom Development',
-        description: 'Tailored software solutions built with cutting-edge technologies for your unique needs.'
-      },
-      {
-        icon: <Zap className="h-12 w-12 text-primary" />,
-        title: 'IT Consulting',
-        description: 'Strategic technology consulting to optimize your IT infrastructure and processes.'
-      },
-      {
-        icon: <Database className="h-12 w-12 text-primary" />,
-        title: 'Data Analytics',
-        description: 'Transform your data into actionable insights with advanced analytics and BI solutions.'
-      }
+      { image: customDevelopment, title: 'Custom Development', description: 'Tailored software solutions built to meet the unique needs of your business.' },
+      { image: itConsulting, title: 'IT Consulting', description: 'Expert guidance to optimize IT infrastructure and improve overall technology strategy.' },
+      { image: dataAnalytics, title: 'Data Analytics', description: 'Transform your business data into actionable insights for smarter decision-making.' }
     ],
     [
-      {
-        icon: <Smartphone className="h-12 w-12 text-primary" />,
-        title: 'Mobile Apps',
-        description: 'Native and cross-platform mobile applications for iOS and Android platforms.'
-      },
-      {
-        icon: <ShoppingBag className="h-12 w-12 text-primary" />,
-        title: 'Retail Services',
-        description: 'Comprehensive retail IT solutions to enhance customer experience and streamline operations.'
-      },
-      {
-        icon: <HardDrive className="h-12 w-12 text-primary" />,
-        title: 'Data Base Maintenance',
-        description: 'Reliable database maintenance and support to ensure your systems run smoothly.'
-      }
+      { image: mobileApps, title: 'Mobile Apps', description: 'High-quality mobile applications for iOS and Android to enhance customer engagement.' },
+      { image: retailServices, title: 'Retail Services', description: 'IT solutions for retail businesses to streamline operations and improve customer experience.' },
+      { image: dataBase, title: 'Database Maintenance', description: 'Reliable database management and support to ensure your systems run smoothly and securely.' }
     ]
   ];
 
@@ -96,7 +57,7 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" variant="secondary" className="text-lg px-8">
               <Link to="/services">
-                Explore Services <ArrowRight className="ml-2" />
+                Explore Services →
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-lg px-8 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
@@ -110,30 +71,34 @@ const Home = () => {
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 animate-slide-up">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Expertise</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive IT solutions tailored to drive your business growth and digital transformation
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Our Expertise</h2>
+            <p className="text-xl text-gray-700 font-semibold max-w-3xl mx-auto">
+              Delivering innovative IT solutions that drive growth, efficiency, and business success.
             </p>
           </div>
           
-          {/* ✅ Explicit Rows */}
           <div className="space-y-12">
             {servicesRows.map((row, rowIndex) => (
               <div key={rowIndex} className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {row.map((service, index) => (
                   <Card 
                     key={index} 
-                    className="group hover:shadow-professional transition-all duration-300 hover:scale-105 animate-scale-in bg-gradient-card border-0"
+                    className="group hover:shadow-professional transition-all duration-300 hover:scale-105 animate-scale-in bg-gradient-card border-0 overflow-hidden"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
+                    <div className="w-full h-48 md:h-56 overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.title} 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
+                    </div>
+
                     <CardHeader className="text-center">
-                      <div className="mx-auto mb-4 p-3 bg-accent rounded-lg w-fit group-hover:bg-primary/10 transition-colors">
-                        {service.icon}
-                      </div>
-                      <CardTitle className="text-xl">{service.title}</CardTitle>
+                      <CardTitle className="text-xl mt-4 font-bold text-gray-900">{service.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <CardDescription className="text-center text-base">
+                      <CardDescription className="text-center text-base font-semibold text-gray-600">
                         {service.description}
                       </CardDescription>
                     </CardContent>
@@ -154,7 +119,7 @@ const Home = () => {
           </p>
           <Button asChild size="lg" variant="secondary" className="text-lg px-8">
             <Link to="/contact">
-              Start Your Project <ArrowRight className="ml-2" />
+              Start Your Project →
             </Link>
           </Button>
         </div>
