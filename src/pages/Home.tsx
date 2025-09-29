@@ -7,7 +7,7 @@ import heroImage from '@/assets/hero-tech.jpg';
 // Service images
 import websiteDesign from '@/assets/websitedesign.png';
 import digitalMarketing from '@/assets/digitalmarketing.png';
-import dataServices from '@/assets/dataservices.png';
+import dataServices from "@/assets/data-services.png";
 import customDevelopment from '@/assets/customdevelopment.png';
 import itConsulting from '@/assets/itconsulting.png';
 import dataAnalytics from '@/assets/dataanalytics.png';

@@ -232,19 +232,19 @@ const Services = () => {
                 {row.map((service, colIndex) => (
                   <Card
                     key={colIndex}
-                    className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white border border-gray-200 h-full flex flex-col"
+                    className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white border border-gray-200 h-full flex flex-col overflow-hidden"
                   >
-                    {/* IMAGE (UNIFORM BOX) */}
-                    <div className="flex justify-center items-center h-60 w-full bg-transparent">
+                    {/* ✅ IMAGE same as Home page */}
+                    <div className="w-full h-48 md:h-56 overflow-hidden">
                       <img
                         src={service.image}
                         alt={service.title}
-                        className="h-48 w-48 object-contain"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>
 
                     {/* TITLE */}
-                    <h3 className="text-2xl font-bold text-center mt-2 mb-2 text-gray-900">
+                    <h3 className="text-2xl font-bold text-center mt-4 mb-2 text-gray-900">
                       {service.title}
                     </h3>
 
@@ -297,19 +297,23 @@ const Services = () => {
             {processSteps.map((step, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center p-6 bg-white shadow-md rounded-lg hover:shadow-xl transition-transform duration-300 hover:scale-105 h-full"
+                className="flex flex-col bg-white shadow-md rounded-lg hover:shadow-xl transition-transform duration-300 hover:scale-105 h-full overflow-hidden"
               >
-                <div className="flex justify-center items-center h-40 w-full">
+                {/* ✅ Image styled same as Home & Services */}
+                <div className="w-full h-48 md:h-56 overflow-hidden">
                   <img
                     src={step.image}
                     alt={step.title}
-                    className="h-28 w-28 object-contain"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                  {step.title}
-                </h3>
-                <p className="text-gray-700 text-sm">{step.desc}</p>
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-700 text-sm flex-grow">{step.desc}</p>
+                </div>
               </div>
             ))}
           </div>
