@@ -4,7 +4,6 @@ import logo from "@/assets/logoluvetha.png";
 import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
-  // ✅ Rewritten Services with correct order & new services
   const services = [
     { name: 'Web Designing', path: '/services' },
     { name: 'Digital Marketing', path: '/services' },
@@ -20,7 +19,7 @@ const Footer = () => {
   const quickLinks = [
     { name: 'About Us', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'OurWork', path: '/our-work' },
+    { name: 'Our Work', path: '/our-work' },
     { name: 'Contact', path: '/contact' },
   ];
 
@@ -28,12 +27,23 @@ const Footer = () => {
     <footer className="footer-color">
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
           {/* Company Info */}
           <div className="animate-fade-in">
-            <img src={logo} alt="Luvetha Logo" className="logo"/>
-            <p className="text-primary-glow1 mb-6 leading-relaxed">
+            {/* ✅ Logo wrapped with Link for Home navigation */}
+            <Link to="/" className="inline-block">
+              <img
+                src={logo}
+                alt="Luvetha Logo"
+                className="logo cursor-pointer hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
+
+            <p className="text-primary-glow1 mb-6 leading-relaxed mt-3">
               Transforming businesses through innovative technology solutions and expert consulting services.
             </p>
+
+            {/* Social Media Links */}
             <div className="flex space-x-4">
               <a 
                 href="https://www.linkedin.com/company/luvetha-tech-solutions-pvt-ltd/" 
@@ -70,7 +80,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Services Section */}
           <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
             <h3 className="font-semibold text-xl mb-6">Our Services</h3>
             <ul className="space-y-3">
@@ -118,7 +128,8 @@ const Footer = () => {
           <div className="animate-fade-in" style={{ animationDelay: '0.3s' }}>
             <h3 className="font-semibold text-xl mb-6">Contact Info</h3>
             <div className="space-y-4">
-              {/* Phone Number */}
+
+              {/* Phone */}
               <div
                 className="flex items-center gap-3 mb-2 cursor-pointer text-gray-800 hover:text-blue-600"
                 onClick={() => (window.location.href = "tel:+919000204921")}
@@ -154,7 +165,6 @@ const Footer = () => {
                 </span>
               </div>
 
-              {/* ✅ Remote Services Worldwide */}
               <div className="flex items-center gap-3 text-gray-800">
                 <MapPin className="text-blue-400" size={20} />
                 <span>Remote Services Worldwide</span>
@@ -167,7 +177,7 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="mx-auto px-4 text-center text-primary-glow1">
-              © 2024 Luvetha Tech Solutions Pvt Ltd. All rights reserved.
+              © {new Date().getFullYear()} Luvetha Tech Solutions Pvt Ltd. All rights reserved.
             </p>
           </div>
         </div>

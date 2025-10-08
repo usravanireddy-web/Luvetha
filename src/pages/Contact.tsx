@@ -21,7 +21,7 @@ import {
   Instagram,
   Linkedin,
   Youtube,
-} from "lucide-react"; // ✅ Added YouTube from lucide-react
+} from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
@@ -39,13 +39,12 @@ const Contact = () => {
     message: "",
   });
 
-  // ✅ Contact info with improved subtitle color
   const contactInfo = [
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: "Phone",
       details: "+91 9000204921",
-      subtitle: "Mon-Fri 9AM-6PM EST",
+      subtitle: "Mon-Fri 9AM-6PM IST",
       link: "tel:+919000204921",
     },
     {
@@ -66,13 +65,12 @@ const Contact = () => {
     {
       icon: <Clock className="h-6 w-6 text-primary" />,
       title: "Response Time",
-      details: "Within 2 hours",
+      details: "Within 1 hours",
       subtitle: "During Business Hours",
       link: "#faq",
     },
   ];
 
-  // ✅ Handle input change
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -82,7 +80,6 @@ const Contact = () => {
     });
   };
 
-  // ✅ Handle form submit
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -100,10 +97,8 @@ const Contact = () => {
       );
 
       console.log("✅ Email sent:", res.status, res.text);
-
       navigate("/thank-you");
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -129,7 +124,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-16">
-      {/* ================= Hero Section ================= */}
+      {/* Hero Section */}
       <section className="py-20 bg-gradient-hero text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
@@ -146,10 +141,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ================= Contact Info ================= */}
+      {/* Contact Info Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          {/* Contact Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             {contactInfo.map((info, index) => (
               <a
@@ -158,10 +152,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Card
-                  className="text-center hover:shadow-professional transition-all duration-300 hover:scale-105 animate-scale-in bg-gradient-card border-0 cursor-pointer"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+                <Card className="text-center hover:shadow-professional transition-all duration-300 hover:scale-105 animate-scale-in bg-gradient-card border-0 cursor-pointer">
                   <CardHeader>
                     <div className="mx-auto mb-4 p-3 bg-accent rounded-lg w-fit">
                       {info.icon}
@@ -172,7 +163,6 @@ const Contact = () => {
                     <div className="font-semibold text-foreground mb-1">
                       {info.details}
                     </div>
-                    {/* ✅ Darker subtitle color for better visibility */}
                     <CardDescription className="text-gray-700">
                       {info.subtitle}
                     </CardDescription>
@@ -182,12 +172,12 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* ✅ Social Icons Beside Heading */}
+          {/* Social Icons */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12">
             <h2 className="text-3xl font-semibold">Follow Us On</h2>
             <div className="flex gap-8">
               <a
-                href="https://www.instagram.com/lv_luvetha" // ✅ Luvetha Instagram
+                href="https://www.instagram.com/lv_luvetha"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -201,14 +191,14 @@ const Contact = () => {
                 <FaWhatsapp className="h-8 w-8 text-green-500 hover:scale-110 transition" />
               </a>
               <a
-                href="https://youtube.com/@luvethatechsolutions" // ✅ Luvetha YouTube
+                href="https://youtube.com/@luvethatechsolutions"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Youtube className="h-8 w-8 text-red-600 hover:scale-110 transition" />
               </a>
               <a
-                href="https://www.linkedin.com/company/luvetha-tech-solutions-pvt-ltd/?viewAsMember=true" // ✅ Luvetha LinkedIn
+                href="https://www.linkedin.com/company/luvetha-tech-solutions-pvt-ltd/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -219,27 +209,22 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ================= Contact Form ================= */}
+      {/* Contact Form */}
       <section className="py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-1 center gap-12">
-            {/* Form */}
             <Card className="animate-slide-up bg-gradient-card border-0 shadow-professional">
               <CardHeader>
                 <CardTitle className="text-2xl">Send Us a Message</CardTitle>
                 <CardDescription>
-                  Fill out the form below and we'll get back to you as soon as
-                  possible.
+                  Fill out the form below and we'll get back to you as soon as possible.
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium mb-2"
-                      >
+                      <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Full Name *
                       </label>
                       <Input
@@ -248,14 +233,11 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        placeholder="John Doe"
+                        placeholder="Luvetha"
                       />
                     </div>
                     <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium mb-2"
-                      >
+                      <label htmlFor="email" className="block text-sm font-medium mb-2">
                         Email Address *
                       </label>
                       <Input
@@ -265,14 +247,11 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        placeholder="john@company.com"
+                        placeholder="luvethatech@company.com"
                       />
                     </div>
                     <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium mb-2"
-                      >
+                      <label htmlFor="phone" className="block text-sm font-medium mb-2">
                         Phone Number *
                       </label>
                       <Input
@@ -288,10 +267,7 @@ const Contact = () => {
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium mb-2"
-                    >
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message *
                     </label>
                     <Textarea
@@ -326,10 +302,8 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* ================= FAQ Section ================= */}
-      <section id="faq" className="py-20 bg-background">
-        {/* Add your FAQ code here */}
-      </section>
+      {/* FAQ Section Placeholder */}
+      <section id="faq" className="py-20 bg-background"></section>
     </div>
   );
 };
