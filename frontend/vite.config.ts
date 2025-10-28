@@ -4,6 +4,7 @@ import path from "path";
 import { luvethaTagger } from "./vite.plugins.luvetha.ts"; // ✅ Your new plugin
 
 export default defineConfig(({ mode }) => ({
+  base: '/',
   server: {
     host: "::",
     port: 8080,
