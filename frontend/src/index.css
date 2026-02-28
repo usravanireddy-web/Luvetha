@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
@@ -106,7 +106,7 @@ All colors MUST be HSL.
   }
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border;
   }
@@ -114,7 +114,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
 .logo{
   height: 100px;
 }

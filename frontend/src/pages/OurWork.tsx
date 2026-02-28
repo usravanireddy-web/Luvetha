@@ -1,15 +1,20 @@
 import React, { useState } from "react";
-import vagtha from "../assets/vagtha.png";
-import sumana from "../assets/sumana.png";
-import dentist from "../assets/dentist.jpg";
-import flowershopImg from "../assets/flowershop.png";
-import saloonImg from "../assets/saloon.png";
-import aqua from "../assets/aqua.png";
-import newschannelImg from "../assets/newschannelImg.jpg";
+
+import vagtha from "../assets/vagtha1.webp";
+import sumana from "../assets/sumana1.webp";
+import dentist from "../assets/dentist1.webp";
+import flowershopImg from "../assets/flowershop1.webp";
+import saloonImg from "../assets/saloon1.webp";
+
+import ptrImg from "../assets/ptr1.webp";
+import sonaImg from "../assets/sona1.webp";
+import goldenratioImg from "../assets/goldenratio1.webp";
+import vibrantImg from "../assets/vibrantpropmart.png";
+import dharaniImg from "../assets/dharaniforms.png";
+import ishaaImg from "../assets/ishaasilks.png";
 
 type Project = {
-  Name: string;
-  title: string;
+  name: string;
   category: string;
   image: string;
   url: string;
@@ -17,132 +22,206 @@ type Project = {
 
 const projects: Project[] = [
   {
-    Name: "Vagtha Women Fashion ",
-    title: "Vagtha Women Fashion ",
+    name: "Vagtha Women Fashion",
     category: "Ecommerce Development",
     image: vagtha,
     url: "https://www.vagtha.com/",
   },
   {
-    Name: "Sumanaa Fashion",
-    title: "Sumanaa Fashion",
+    name: "Sumanaa Fashion",
     category: "Ecommerce Development",
     image: sumana,
     url: "http://sumanaaclothing.com/",
   },
-   {
-     Name: "Dental Clinic Website",
-    title: "Dental Clinic Website",
-     category: "HTML Web Design",
-     image: dentist,
-    url: "https://usravanireddy-web.github.io/Dental/",
-   },
   {
-    Name: "Flower Bouquet Website",
-    title: "Flower Bouquet Shop",
+    name: "PTR Infracons",
+    category: "HTML Web Design",
+    image: ptrImg,
+    url: "https://ptrinfracons.com/",
+  },
+  {
+    name: "Sona Interiors",
+    category: "HTML Web Design",
+    image: sonaImg,
+    url: "https://www.sonainteriors.co.in/",
+  },
+  {
+    name: "Golden Ratio Interiors",
+    category: "HTML Web Design",
+    image: goldenratioImg,
+    url: "https://goldenratioprofile.com/",
+  },
+  {
+    name: "VibrantPropMart",
+    category: "HTML Web Design",
+    image: vibrantImg,
+    url: "https://vibrantpropmart.com/",
+  },
+  {
+    name: "DharaniForms",
+    category: "HTML Web Design",
+    image: dharaniImg,
+    url: "https://dharani-farms.vercel.app/",
+  },
+  {
+    name: "Ishaa Silks",
+    category: "HTML Web Design",
+    image: ishaaImg,
+    url: "https://isha-silks.vercel.app/",
+  },
+  {
+    name: "Dental Clinic Website",
+    category: "HTML Web Design",
+    image: dentist,
+    url: "https://dental.wasmer.app/",
+  },
+  {
+    name: "Flower Bouquet Website",
     category: "Ecommerce Development",
     image: flowershopImg,
-    url: "https://usravanireddy-web.github.io/Flower/",
+    url: "https://flower.wasmer.app/",
   },
   {
-    Name: "Saloon Website",
-    title: "Saloon Website",
+    name: "Saloon Website",
     category: "WordPress Development",
     image: saloonImg,
-    url: "https://usravanireddy-web.github.io/BeautySaloon/",
+    url: "https://beautysaloon.wasmer.app/",
   },
-  // {
-  //   Name: "Aqua Water Website",
-  //   title: "Aqua Water Website",
-  //   category: "HTML Web Design",
-  //   image: aqua,
-  //   url: "https://usravanireddy-web.github.io/AquaWater/",
-  // },
-  // {
-  //   Name: "News Paper Website",
-  //   title: "News Channel Website",
-  //   category: "HTML Web Design ",
-  //   image: newschannelImg,
-  //   url: "https://usravanireddy-web.github.io/News/",
-  // },
 ];
 
-const categories = [
+const allCategories = [
   "All",
-  "HTML Web Design",
-  "WordPress Development",
-  "PHP Development",
-  "Ecommerce Development",
+  ...Array.from(new Set(projects.map((p) => p.category))),
 ];
 
 const OurWork: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const filteredProjects =
-    activeCategory === "All"
+    selectedCategory === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.category === selectedCategory);
 
   return (
-    <section className="p-8">
-      <h2 className="text-3xl font-bold text-center mb-6">Our Work</h2>
+    <section
+      id="our-work"
+      className="relative w-full pt-24 pb-12 px-4 sm:px-6 lg:px-8 scroll-mt-24
+      bg-gradient-to-b from-[#f5f5f7] via-[#ececf0] to-[#f3f3f4]"
+    >
+      <div className="max-w-6xl mx-auto">
 
-      {/* Category Filter */}
-      <div className="flex justify-center flex-wrap gap-4 mb-10">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-full text-sm font-semibold transition ${
-              activeCategory === cat
-                ? "bg-black text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+        {/* Heading */}
+        <div className="text-center max-w-2xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+            Our Work
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600">
+            A curated selection of live websites and ecommerce experiences
+            crafted for fashion brands, interiors, clinics and local businesses.
+          </p>
+        </div>
 
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project, index) => (
-          <div
-            key={index}
-            className="relative group rounded-lg overflow-hidden shadow-lg"
-          >
-            {/* Responsive Image Container */}
-            <div className="w-full aspect-[16/9] bg-gray-100 flex items-center justify-center">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h3 className="text-white text-lg font-bold mb-2">
-                {project.title}
-              </h3>
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-black px-4 py-2 rounded-lg font-semibold hover:bg-gray-200"
+        {/* Category Filters */}
+        <div className="mb-8 flex flex-wrap gap-2 justify-center">
+          {allCategories.map((category) => {
+            const isActive = selectedCategory === category;
+            return (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={[
+                  "px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium border transition-all duration-200",
+                  isActive
+                    ? "bg-slate-900 text-white border-slate-900"
+                    : "bg-white text-slate-700 border-slate-200 hover:border-slate-300",
+                ].join(" ")}
               >
-                Visit Website
-              </a>
-            </div>
+                {category}
+              </button>
+            );
+          })}
+        </div>
 
-            {/* Always Visible Name */}
-            <div className="p-4 bg-white">
-              <p className="text-center font-semibold text-gray-800">
-                {project.Name}
-              </p>
-            </div>
-          </div>
-        ))}
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project) => (
+            <a
+              key={project.url}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block"
+            >
+              <article
+                className="flex flex-col overflow-hidden rounded-xl
+                border border-slate-200 bg-white
+                shadow-sm transition-all duration-300
+                hover:-translate-y-1 hover:shadow-xl"
+              >
+
+                {/* IMAGE */}
+                <div className="relative w-full h-56 overflow-hidden">
+                  
+                  {/* Light Zoom Image */}
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover
+                               transition-transform duration-500
+                               group-hover:scale-105"
+                  />
+
+                  {/* Dark overlay on hover */}
+                  <div className="absolute inset-0 bg-black/0 
+                                  group-hover:bg-black/20 
+                                  transition-all duration-300"></div>
+
+                  {/* Category Badge (ONLY ON HOVER) */}
+                  <div className="absolute top-3 right-3
+                                  opacity-0 translate-y-2
+                                  group-hover:opacity-100
+                                  group-hover:translate-y-0
+                                  transition-all duration-300">
+                    <span className="rounded-full bg-white px-3 py-1 text-[10px] font-medium text-slate-700 shadow">
+                      {project.category}
+                    </span>
+                  </div>
+
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-1 flex-col p-4">
+                  <h3 className="text-sm sm:text-base font-semibold text-slate-900 mb-2">
+                    {project.name}
+                  </h3>
+
+                  <p className="text-xs text-slate-500 mb-4 flex-1">
+                    Clean, responsive and conversion-focused design tailored to
+                    the brand&apos;s audience.
+                  </p>
+
+                  <div className="mt-auto pt-2 flex items-center justify-between border-t border-slate-200">
+                    <div className="flex flex-col">
+                      <span className="text-[10px] text-slate-400 uppercase">
+                        Live Project
+                      </span>
+                    </div>
+
+                    <span
+                      className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5
+                      text-xs font-semibold text-white bg-slate-900
+                      transition-all duration-300 group-hover:bg-black"
+                    >
+                      Visit Website ↗
+                    </span>
+                  </div>
+                </div>
+
+              </article>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
   );
