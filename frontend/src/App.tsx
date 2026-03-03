@@ -39,6 +39,14 @@ import DataAnalytics from "./pages/DataAnalytics";
 import MobileAppDevelopment from "./pages/MobileApps";
 import RetailServicesPage from "./pages/RetailServices";
 import DatabaseMaintenance from "./pages/DatabaseMaintance";
+import SEOPage from "./DigitalMarketingPages/SeoPage";
+import SMMServices from "./DigitalMarketingPages/Smmservices";
+import PPCServices from "./DigitalMarketingPages/Ppcservices";
+import UIUXDesign from "./WebDesignpages/UIUXDesign";
+import EcommerceServiceDevelopment from "./WebDesignpages/EcommerceServicesPage";
+import WordpressDevelopment from "./WebDesignpages/WordpressDevelopment";
+import WebDevelopmentApplication from "./WebDesignpages/WebDevelopmentApplication";
+import MobileApplicationDevelopment from "./WebDesignpages/MobileApplicationDev";
 
 
 const queryClient = new QueryClient();
@@ -84,6 +92,14 @@ const AppLayout = () => {
         <Route path="/mobileapps" element={<MobileAppDevelopment />} />
         <Route path="/retailservices" element={<RetailServicesPage />} />
         <Route path="/databasemaintenance" element={<DatabaseMaintenance />} />
+      <Route path="/seo" element={<SEOPage />} />
+    <Route path="/smm" element={<SMMServices />} />
+        <Route path="/ppc" element={<PPCServices />} />
+         <Route path="/uiux" element={<UIUXDesign />} />
+          <Route path="/ecommercedevelopment" element={<EcommerceServiceDevelopment/>} />
+           <Route path="/wordpressdevelopment" element={<WordpressDevelopment />} />
+            <Route path="/webapplicationdevelopement" element={<WebDevelopmentApplication/>} />
+             <Route path="/mobile-application" element={<MobileApplicationDevelopment/>} />
       
       </Routes>
 

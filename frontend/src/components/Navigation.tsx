@@ -14,13 +14,33 @@ const Navigation: React.FC = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const services = [
-    { id: "web-design", label: "Web Design", path: "/webdevelopment" },
-    { id: "digital-marketing", label: "Digital Marketing", path: "/digitalmarketing" },
+    { id: "web-design", label: "Web Design", path: "/webdevelopment" ,
+    children: [
+      { label: "UI/UX Design", path: "/uiux" },
+      { label: "Web Application Development", path: "/webapplicationdevelopement" },
+      { label: "Ecommerce Development Services", path: "/ecommercedevelopment" },
+      { label: "Wordpress Development", path: "/wordpressdevelopment" },
+    ],
+
+    },
+   {
+    id: "digital-marketing",
+    label: "Digital Marketing",
+    path: "/digitalmarketing",
+    children: [
+      { label: "SEO Services", path: "/seo" },
+      { label: "SMM Services", path: "/smm" },
+      { label: "PPC Services", path: "/ppc" },
+    ],
+  },
     { id: "data-services", label: "Data Services", path: "/dataservices" },
     { id: "custom-development", label: "Custom Development", path: "/customdevelopment" },
     { id: "it-consulting", label: "IT Consulting", path: "/itconsulting" },
     { id: "data-analytics", label: "Data Analytics", path: "/dataanalytics" },
-    { id: "mobile-apps", label: "Mobile Apps", path: "/mobileapps" },
+    { id: "mobile-apps", label: "Mobile Apps", path: "/mobileapps", 
+       children: [
+      { label: "Mobile Application Development", path: "/mobile-application" },]
+    },
     { id: "retail-services", label: "Retail Services", path: "/retailservices" },
     { id: "database-maintenance", label: "Database Maintenance", path: "/databasemaintenance" },
   ];
@@ -98,21 +118,53 @@ const Navigation: React.FC = () => {
                 </Link>
 
                 {/* DROPDOWN */}
-                {isServicesOpen && (
-                  <div className="absolute top-full left-0 w-72 bg-background border border-border rounded-lg shadow-lg p-2 space-y-1 z-50">
+               {isServicesOpen && (
+  <div className="absolute top-full left-0 w-72 bg-background border border-border rounded-lg shadow-lg p-2 space-y-1 z-50">
 
-                    {services.map((service) => (
-                      <Link
-                        key={service.path}
-                        to={service.path}
-                        className="block px-4 py-2 text-[15px] md:text-base text-muted-foreground hover:text-sky-500 hover:bg-muted rounded-md transition-all"
-                      >
-                        {service.label}
-                      </Link>
-                    ))}
+    {services.map((service) => (
+      <div key={service.path} className="relative group/sub">
 
-                  </div>
-                )}
+        {/* Main Service Link */}
+        <Link
+          to={service.path}
+          className="flex justify-between items-center px-4 py-2 text-[15px] md:text-base text-muted-foreground hover:text-sky-500 hover:bg-muted rounded-md transition-all"
+        >
+          {service.label}
+          {service.children && <ChevronDown size={14} />}
+        </Link>
+
+        {/* Sub Dropdown (Digital Marketing) */}
+        {service.children && (
+         <div
+      className="absolute left-full ml-2 top-0 w-56 bg-white 
+             shadow-lg rounded-md p-2 space-y-1 
+             opacity-0 invisible 
+             group-hover/sub:opacity-100 
+             group-hover/sub:visible 
+             transition-all duration-300"
+>
+            {service.children.map((child) => (
+              <Link
+                key={child.path}
+                to={child.path}
+        className="block px-4 py-2 text-sm 
+           text-gray-700 
+           hover:bg-sky-500 
+           hover:text-white 
+           rounded-md 
+           transition-all duration-300"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
+        )}
+
+      </div>
+    ))}
+
+  </div>
+)}
               </div>
 
               {/* OUR WORK */}
@@ -180,22 +232,35 @@ const Navigation: React.FC = () => {
             <Link to="/about" className="block text-base font-semibold">About</Link>
 
             <div>
-              <Link to="/services" className="block text-base font-semibold">
-                Services
-              </Link>
+  <span className="block text-base font-semibold">Services</span>
 
-              <div className="ml-4 mt-2 space-y-2">
-                {services.map((service) => (
-                  <Link
-                    key={service.path}
-                    to={service.path}
-                    className="block text-base text-muted-foreground"
-                  >
-                    {service.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
+  <div className="ml-4 mt-2 space-y-2">
+    {services.map((service) => (
+      <div key={service.path}>
+        <Link
+          to={service.path}
+          className="block text-base text-muted-foreground"
+        >
+          {service.label}
+        </Link>
+
+        {service.children && (
+          <div className="ml-4 mt-1 space-y-1">
+            {service.children.map((child) => (
+              <Link
+                key={child.path}
+                to={child.path}
+                className="block text-sm text-gray-600"
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
 
             <Link to="/ourwork" className="block text-base font-semibold">Our Work</Link>
             <Link to="/contact" className="block text-base font-semibold">Contact</Link>
