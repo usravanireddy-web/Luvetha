@@ -679,7 +679,7 @@ const DataAnalyticsPage = () => {
                     {/* Always visible CTA */}
                     <div className="mt-3 md:mt-4 flex items-center justify-between">
                       <Link 
-                        to={`/services/${service.id}`}
+                        to={`/services`}
                         className={`text-xs md:text-sm font-medium inline-flex items-center group/link text-blue-600 hover:text-blue-700`}
                       >
                         Learn More

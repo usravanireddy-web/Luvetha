@@ -14,7 +14,7 @@ import googleMobile from "@/assets/googlemobile.png";
 import googleSearch from "@/assets/searchads.png";
 import googleAnalytics from "@/assets/googleanalytics.png";
 import googleVideo from "@/assets/googlevideo.png";
-import googleDisplay from "@/assets/googledisplay.png";
+import googleDisplay from "../assets/Google Adds Analytics.png";
 
 import award25Hot from "@/assets/hot25.png";
 import awardTopDM from "@/assets/digital.png";
