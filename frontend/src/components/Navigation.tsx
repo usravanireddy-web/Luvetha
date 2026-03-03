@@ -179,8 +179,8 @@ const Navigation: React.FC = () => {
                       </Link>
                     ))}
 
-                  </div>
-                )}
+  </div>
+)}
               </div>
 
               <Link to="/ourwork" className={`${navTextStyle} hover:text-sky-500`}>

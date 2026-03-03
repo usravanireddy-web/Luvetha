@@ -27,7 +27,6 @@ const Services = () => {
   const servicesRows = [
     [
       {
-        path: "/webdevelopment",
         image: websiteDesigin,
         title: "Web Development",
         description:
@@ -41,7 +40,6 @@ const Services = () => {
         ],
       },
       {
-        path: "/digitalmarketing",
         image: digitalMarketing,
         title: "Digital Marketing",
         description:
@@ -55,7 +53,6 @@ const Services = () => {
         ],
       },
       {
-        path: "/dataservices",
         image: dataServices,
         title: "Data Services",
         description:
@@ -71,7 +68,6 @@ const Services = () => {
     ],
     [
       {
-        // path: "/services/customdevelopment",
         image: customDevelopment,
         title: "Custom Development",
         description:
@@ -85,7 +81,6 @@ const Services = () => {
         ],
       },
       {
-        // path: "/services/itconsulting",
         image: itConsuluting,
         title: "IT Consulting",
         description:
@@ -99,7 +94,6 @@ const Services = () => {
         ],
       },
       {
-        // path: "/services/dataanalytics",
         image: dataAnalytics,
         title: "Data Analytics",
         description:
@@ -115,7 +109,6 @@ const Services = () => {
     ],
     [
       {
-        // path: "/services/mobileapps",
         image: mobieApps,
         title: "Mobile Apps",
         description:
@@ -129,7 +122,6 @@ const Services = () => {
         ],
       },
       {
-        // path: "/services/retailservices",
         image: retailServices,
         title: "Retail Services",
         description:
@@ -143,7 +135,6 @@ const Services = () => {
         ],
       },
       {
-        // path: "/services/databasemaintenance",
         image: dataBase,
         title: "Database Maintenance",
         description:
@@ -183,8 +174,8 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-0">
-      {/* HERO SECTION (UNCHANGED) */}
+    <div className="min-h-screen pt-16">
+      {/* HERO SECTION */}
       <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -193,29 +184,57 @@ const Services = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70"></div>
         </div>
 
-        <div className="relative z-10 text-center text-primary-foreground px-4">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Comprehensive IT <br />
+        <div className="relative z-10 text-center text-primary-foreground px-4 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            Comprehensive IT
+            <br />
             <span className="text-primary-glow">Solutions</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90">
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-white/90">
             From Web Development to Data Services and Digital Marketing — we
             build and scale technology that drives outcomes.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              asChild
+              size="lg"
+              variant="secondary"
+              className="text-lg px-8 shadow-md"
+            >
+              <Link to="/services">
+                Explore Services <ArrowRight className="ml-2" />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* SERVICES GRID */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 space-y-12">
-          {servicesRows.map((row, rowIndex) => (
-            <div
-              key={rowIndex}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
-              {row.map((service, idx) => (
-                <Link key={idx} to={service.path} className="group">
-                  <Card className="hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white h-full flex flex-col overflow-hidden cursor-pointer">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 animate-slide-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+              Our Core Services
+            </h2>
+            <p className="text-lg md:text-xl text-gray-800 max-w-3xl mx-auto">
+              Services organized by capability — select any card to learn more or
+              request a quote.
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {servicesRows.map((row, rowIndex) => (
+              <div
+                key={rowIndex}
+                className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              >
+                {row.map((service, colIndex) => (
+                  <Card
+                    key={colIndex}
+                    className="group hover:shadow-xl transition-all duration-300 hover:scale-105 bg-white border border-gray-200 h-full flex flex-col overflow-hidden"
+                  >
+                    {/* ✅ IMAGE same as Home page */}
                     <div className="w-full h-48 md:h-56 overflow-hidden">
                       <img
                         src={service.image}
@@ -224,62 +243,76 @@ const Services = () => {
                       />
                     </div>
 
+                    {/* TITLE */}
                     <h3 className="text-2xl font-bold text-center mt-4 mb-2 text-gray-900">
                       {service.title}
                     </h3>
 
+                    {/* DESCRIPTION */}
                     <p className="text-center text-gray-700 px-4 mb-4">
                       {service.description}
                     </p>
 
+                    {/* FEATURES */}
                     <CardContent className="flex flex-col flex-grow px-6">
-                      <div className="space-y-2 mb-6">
+                      <div className="space-y-2 mb-6 text-left flex-grow">
                         {service.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-center gap-2">
-                            <CheckCircle className="h-4 w-4 text-primary" />
+                          <div
+                            key={fIdx}
+                            className="flex items-center gap-2 text-gray-800"
+                          >
+                            <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
                             <span className="text-sm">{feat}</span>
                           </div>
                         ))}
                       </div>
 
-                      <Button
-                        asChild
-                        variant="outline"
-                        className="w-full mt-auto"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <Link to="/contact#contact-form" className="flex items-center justify-center">
-                          Get Quote <ArrowRight className="ml-2" />
-                        </Link>
-                      </Button>
+                      <div className="mt-auto">
+                        <Button
+                          asChild
+                          variant="outline"
+                          className="w-full group-hover:bg-primary group-hover:text-primary-foreground"
+                        >
+                          <Link to="/contact">
+                            Get Quote <ArrowRight className="ml-2" />
+                          </Link>
+                        </Button>
+                      </div>
                     </CardContent>
                   </Card>
-                </Link>
-              ))}
-            </div>
-          ))}
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* PROCESS STEPS (UNCHANGED) */}
+      {/* PROCESS STEPS */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gray-900">
             Our Process
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {processSteps.map((step, idx) => (
-              <div key={idx} className="bg-white shadow-md rounded-lg">
-                <img
-                  src={step.image}
-                  alt={step.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">
+              <div
+                key={idx}
+                className="flex flex-col bg-white shadow-md rounded-lg hover:shadow-xl transition-transform duration-300 hover:scale-105 h-full overflow-hidden"
+              >
+                {/* ✅ Image styled same as Home & Services */}
+                <div className="w-full h-48 md:h-56 overflow-hidden">
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-900">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-gray-700">{step.desc}</p>
+                  <p className="text-gray-700 text-sm flex-grow">{step.desc}</p>
                 </div>
               </div>
             ))}

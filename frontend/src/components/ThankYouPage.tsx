@@ -1,5 +1,5 @@
 import React from "react";
-import { Linkedin, Instagram, Youtube, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin,Instagram,Youtube,MessageCircle } from 'lucide-react';
 
 const ThankYouPage: React.FC = () => {
   return (
@@ -29,8 +29,8 @@ const ThankYouPage: React.FC = () => {
 
         <h1 className="text-3xl font-bold text-gray-800 mb-2">Thank you!</h1>
         <p className="text-gray-600 mb-8">
-          We've sent your free report to your inbox so it's easy to access. You
-          can find more information on our website and social pages.
+          We've sent your free report to your inbox so it's easy to access. You can find
+          more information on our website and social pages.
         </p>
 
         {/* Cards Section */}
@@ -39,33 +39,33 @@ const ThankYouPage: React.FC = () => {
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <h2 className="text-lg font-semibold mb-4">Connect With Us</h2>
             <div className="flex justify-center gap-4 text-xl text-gray-700">
-              <a
-                href="https://www.linkedin.com/company/luvetha-tech-solutions-pvt-ltd/"
-                target="_blank"
+              <a 
+                href="https://www.linkedin.com/company/luvetha-tech-solutions-pvt-ltd/" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a
-                href="https://www.instagram.com/luvetha_tech_solutions?igsh=anZuZ2RkeDIzcmVp"
-                target="_blank"
+              <a 
+                href="https://www.instagram.com/lv_luvetha" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a
-                href="https://www.youtube.com/@luvethatechsolutions"
-                target="_blank"
+              <a 
+                href="https://www.youtube.com/@luvethatechsolutions" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
               >
                 <Youtube className="h-5 w-5" />
               </a>
-              <a
-                href="https://wa.me/919000204921"
-                target="_blank"
+              <a 
+                href="https://wa.me/919000204921" 
+                target="_blank" 
                 rel="noopener noreferrer"
                 className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
               >
