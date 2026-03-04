@@ -41,6 +41,15 @@ import AiDevelopment from "./pages/AiDevelopment";
 import DataSceince from "./pages/DataSceince";
 import AwsManagedServices from "./pages/Aws";
 import Networking from "./pages/Networking";
+import SEOPage from "./DigitalMarketingPages/SeoPage";
+import SMMServices from "./DigitalMarketingPages/Smmservices";
+import PPCServices from "./DigitalMarketingPages/Ppcservices";
+import UIUXDesign from "./WebDesignpages/UIUXDesign";
+import EcommerceServiceDevelopment from "./WebDesignpages/EcommerceServicesPage";
+import WordpressDevelopment from "./WebDesignpages/WordpressDevelopment";
+import WebDevelopmentApplication from "./WebDesignpages/WebDevelopmentApplication";
+import MobileApplicationDevelopment from "./WebDesignpages/MobileApplicationDev";
+
 
 const queryClient = new QueryClient();
 
@@ -94,6 +103,15 @@ const AppLayout = () => {
 
         {/* 404 PAGE */}
         <Route path="*" element={<NotFound />} />
+      <Route path="/seo" element={<SEOPage />} />
+    <Route path="/smm" element={<SMMServices />} />
+        <Route path="/ppc" element={<PPCServices />} />
+         <Route path="/uiux" element={<UIUXDesign />} />
+          <Route path="/ecommercedevelopment" element={<EcommerceServiceDevelopment/>} />
+           <Route path="/wordpressdevelopment" element={<WordpressDevelopment />} />
+            <Route path="/webapplicationdevelopement" element={<WebDevelopmentApplication/>} />
+             <Route path="/mobile-application" element={<MobileApplicationDevelopment/>} />
+      
       </Routes>
 
       {!hideLayout && <Footer />}
