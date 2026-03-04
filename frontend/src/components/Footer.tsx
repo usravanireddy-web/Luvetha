@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               <FooterLink to="/dataanalytics">Data Analytics</FooterLink>
               <FooterLink to="/databasemaintenance">Database Maintenance</FooterLink>
               <FooterLink to="/retailservices">Retail Services</FooterLink>
-              <FooterLink to="/itconsulting">IT Consulting</FooterLink>
+              {/* <FooterLink to="/itconsulting">IT Consulting</FooterLink> */}
             </FooterColumn>
 
             {/* ===== CONTACT ===== */}

@@ -638,17 +638,17 @@ const DataServices: React.FC = () => {
               {
                 quote: "Reduced our reporting time by 80% and gave us new insights.",
                 author: "Sarah Chen",
-                role: "CTO, RetailCorp",
+                // role: "CTO, RetailCorp",
               },
               {
                 quote: "Helped reduce inventory costs by 35% while improving availability.",
                 author: "Michael Rodriguez",
-                role: "Operations Director",
+                // role: "Operations Director",
               },
               {
                 quote: "Transformed our data chaos into clear business intelligence.",
                 author: "Jessica Williams",
-                role: "Data VP, HealthFirst",
+                // role: "Data VP, HealthFirst",
               },
             ].map((testimonial, i) => (
               <div
@@ -663,7 +663,7 @@ const DataServices: React.FC = () => {
                 <p className="text-xs sm:text-sm text-gray-700 italic mb-3 sm:mb-4">"{testimonial.quote}"</p>
                 <div>
                   <h4 className="font-bold text-sm sm:text-base md:text-lg">{testimonial.author}</h4>
-                  <p className="text-xs text-gray-600">{testimonial.role}</p>
+                  {/* <p className="text-xs text-gray-600">{testimonial.role}</p> */}
                 </div>
               </div>
             ))}

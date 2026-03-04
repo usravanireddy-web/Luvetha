@@ -158,8 +158,8 @@ const RetailServicesPage: React.FC = () => {
       // role: "CEO, FashionHub",
       content: "This platform transformed our retail operations completely. Sales increased by 40% in just 3 months. The analytics alone are worth the investment.",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1494790108777-466d8533b0c1?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      path: "/case-studies/fashionhub"
+      image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+      path: "/services"
     },
     {
       name: "Michael Chen",
@@ -167,7 +167,7 @@ const RetailServicesPage: React.FC = () => {
       content: "The inventory management system saved us countless hours and reduced stockouts by 60%. Highly recommended for any retailer looking to scale.",
       rating: 5,
       image: "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      path: "/case-studies/techstore"
+      path: "/services"
     },
     {
       name: "Emma Davis",
@@ -175,7 +175,7 @@ const RetailServicesPage: React.FC = () => {
       content: "Outstanding customer support and feature-rich platform. The team helped us migrate seamlessly and we were live in under 48 hours.",
       rating: 5,
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-      path: "/case-studies/homedecor"
+      path: "/services"
     }
   ];
 
@@ -382,7 +382,7 @@ const RetailServicesPage: React.FC = () => {
               <div 
                 key={index} 
                 className="group bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer"
-                onClick={() => navigateTo(service.path)}
+                onClick={() => navigateTo(`/services`)}
               >
                 <div className={`text-${service.color}-600 mb-4 transform group-hover:scale-110 transition-transform`}>
                   {service.icon}
@@ -400,7 +400,7 @@ const RetailServicesPage: React.FC = () => {
                 <button 
                   onClick={(e) => {
                     e.stopPropagation();
-                    navigateTo(service.path);
+                    navigateTo(`/services`);
                   }}
                   className="mt-6 text-blue-600 font-semibold flex items-center group-hover:translate-x-2 transition-transform"
                 >
@@ -446,47 +446,64 @@ const RetailServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Trusted by Retailers Worldwide
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See what our clients have to say about their experience with our platform
-            </p>
+     {/* Testimonials Section */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Heading */}
+    <div className="text-center mb-12">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Trusted by Retailers Worldwide
+      </h2>
+      <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        See what our clients have to say about their experience with our platform
+      </p>
+    </div>
+
+    {/* Testimonials Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {testimonials.map((testimonial, index) => (
+        <div 
+          key={index}
+          className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition duration-300"
+        >
+          {/* Top Section */}
+          <div className="flex items-center mb-5">
+            <img 
+              src={testimonial.image}
+              alt={testimonial.name}
+              className="w-14 h-14 rounded-full object-cover border-2 border-blue-500"
+            />
+            <div className="ml-4">
+              <p className="font-semibold text-gray-900">
+                {testimonial.name}
+              </p>
+              {/* <p className="text-sm text-gray-500">
+                {testimonial.role}
+              </p> */}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div 
-                key={index} 
-                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-                onClick={() => navigateTo(testimonial.path)}
-              >
-                <div className="flex items-center mb-6">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4 object-cover"
-                  />
-                  <div>
-                    <p className="font-bold text-gray-900">{testimonial.name}</p>
-                    {/* <p className="text-gray-500 text-sm">{testimonial.role}</p> */}
-                  </div>
-                </div>
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current text-yellow-400" />
-                  ))}
-                </div>
-                <p className="text-gray-600 italic">"{testimonial.content}"</p>
-              </div>
+          {/* Rating */}
+          <div className="flex gap-1 mb-3">
+            {[...Array(testimonial.rating)].map((_, i) => (
+              <Star 
+                key={i} 
+                className="w-4 h-4 fill-current text-yellow-400" 
+              />
             ))}
           </div>
+
+          {/* Content */}
+          <p className="text-gray-600 text-sm italic leading-relaxed">
+            "{testimonial.content}"
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+
+  </div>
+</section>
 
       {/* FAQ Section with Accordion */}
       <section className="py-20 bg-white">
